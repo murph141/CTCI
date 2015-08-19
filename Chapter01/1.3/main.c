@@ -1,16 +1,25 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<bsd/string.h>
+#include<string.h>
 
 int findSpaces(char *);
 void replaceSpaces(char *, char *, int, int);
 
 int main(int argc, char * argv[])
 {
+  if(argc < 2)
+  {
+    printf("Usage: %s <string>\n", argv[0]);
+    return(EXIT_FAILURE);
+  }
+
   int lengthOld = strlen(argv[1]);
   int lengthNew;
 
-  char * oldString = malloc(sizeof(char) * (lengthOld + 1));
+  char * newString;
+  char * oldString;
+    
+  oldString = malloc(sizeof(char) * (lengthOld + 1));
 
   strncpy(oldString, argv[1], lengthOld);
 
@@ -18,7 +27,7 @@ int main(int argc, char * argv[])
 
   lengthNew = lengthOld + (2 * findSpaces(oldString));
 
-  char * newString = malloc(sizeof(char) * (lengthNew + 1));
+  newString = malloc(sizeof(char) * (lengthNew + 1));
 
   newString[lengthNew] = '\0';
 
@@ -31,7 +40,7 @@ int main(int argc, char * argv[])
   free(oldString);
   free(newString);
 
-  return(0);
+  return(EXIT_SUCCESS);
 }
 
 
@@ -42,11 +51,11 @@ int findSpaces(char * string)
 
   while(string[i] != '\0')
   {
-    i++;
     if(string[i] == ' ')
     {
       retVal++;
     }
+    i++;
   }
 
   return(retVal);
