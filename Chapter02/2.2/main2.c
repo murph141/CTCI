@@ -8,6 +8,7 @@ int main(int argc, char * argv[])
   if(argc < 2)
   {
     printf("Usage: %s <desired index>\n", argv[0]);
+    return(EXIT_FAILURE);
   }
 
   int desiredIndex = atoi(argv[1]) + 1;
