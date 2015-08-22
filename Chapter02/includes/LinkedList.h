@@ -17,7 +17,6 @@ void freeList(List *);
 
 void buildTestList(List ** listPtr)
 {
-  *listPtr = NULL;
   pushNodeFront(listPtr, 1);
   pushNodeFront(listPtr, 2);
   pushNodeFront(listPtr, 3);
