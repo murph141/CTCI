@@ -1,6 +1,6 @@
 GCC = gcc
 PARAMS = #Override in command line (or here) is parameters are present
-DIRECTORY = ./2.5 #(Override in command line (or here) if you want to compile a different directory
+DIRECTORY = #(Override in command line (or here) if you want to compile a different directory
 CFLAGS = -Werror -Wbad-function-cast -Wall -Wshadow -ggdb3
 SOURCES = main.c
 OBJS = $(SOURCES:.c=.o)
